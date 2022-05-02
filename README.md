@@ -5,4 +5,4 @@
 | 61130500097      | Weerawat       | Pianpanussak    |
 | 61130500124      | Thanakrit      | Saeteng         |
 
-This project is part of INT491 Applied Artificial Intelligence.
+This project is part of INT491 Applied Artificial Intelligence : 2/2564.

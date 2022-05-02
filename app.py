@@ -18,11 +18,10 @@ hide_menu_style = """
 st.markdown(hide_menu_style, unsafe_allow_html=True)
 
 model = tf.keras.models.load_model("saved_model/butterflies.hdf5")
-
+ 
 st.markdown("<h1 style='text-align: center; font-size:100px;'>PREDICTFLY</h1>", unsafe_allow_html=True)
 
 st.markdown("<h5 style='text-align: center;'>A web page for predicting butterfly species from images.</h5>", unsafe_allow_html=True)
-
 
 file_ = open("img/is-this-a-pigeon-butterfly.gif", "rb")
 contents = file_.read()
@@ -34,9 +33,9 @@ st.markdown(
 )
 
 uploaded_file = st.file_uploader("Choose a image file", type="jpg")
-st.write("A list of 75 supported butterfly species can be accessed [here](https://github.com/0045w/BSIC/blob/main/class_dict.csv)")
-st.write("Source Code at [Github](https://github.com/0045w/BSIC)")
-st.write("Dataset at [Kaggle](https://www.kaggle.com/datasets/gpiosenka/butterfly-images40-species?resource=download)")
+st.write("- A list of 75 supported butterfly species can be accessed [here](https://github.com/0045w/BSIC/blob/main/class_dict.csv)")
+st.write("- Source Code at [Github](https://github.com/0045w/BSIC)")
+st.write("- Dataset at [Kaggle](https://www.kaggle.com/datasets/gpiosenka/butterfly-images40-species?resource=download)")
 
 map_dict = {0: 'ADONIS', 
             1: 'AFRICAN GIANT SWALLOWTAIL', 

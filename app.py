@@ -35,6 +35,8 @@ st.markdown(
 
 uploaded_file = st.file_uploader("Choose a image file", type="jpg")
 st.write("A list of 75 supported butterfly species can be accessed [here](https://github.com/0045w/BSIC/blob/main/class_dict.csv)")
+st.write("Source Code at [Github](https://github.com/0045w/BSIC)")
+st.write("Dataset at [Kaggle](https://www.kaggle.com/datasets/gpiosenka/butterfly-images40-species?resource=download)")
 
 map_dict = {0: 'ADONIS', 
             1: 'AFRICAN GIANT SWALLOWTAIL', 

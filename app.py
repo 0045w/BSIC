@@ -6,7 +6,7 @@ import base64
 from tensorflow.keras.preprocessing import image
 from tensorflow.keras.applications.mobilenet_v2 import MobileNetV2,preprocess_input as mobilenet_v2_preprocess_input
 
-st.set_page_config(page_title='Name of This Butterflies', page_icon='butterfly')
+st.set_page_config(page_title='Predictfly', page_icon='butterfly')
 
 hide_menu_style = """
         <style>
@@ -19,7 +19,10 @@ st.markdown(hide_menu_style, unsafe_allow_html=True)
 
 model = tf.keras.models.load_model("saved_model/butterflies.hdf5")
 
-st.markdown("<h1 style='text-align: center;'>ผีเสื้อตัวนี้ชื่ออะไร เดี๋ยวตอบให้!</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center; font-size:100px;'>PREDICTFLY</h1>", unsafe_allow_html=True)
+
+st.markdown("<h5 style='text-align: center;'>A web page for predicting butterfly species from images.</h5>", unsafe_allow_html=True)
+
 
 file_ = open("img/is-this-a-pigeon-butterfly.gif", "rb")
 contents = file_.read()
@@ -30,8 +33,8 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-uploaded_file = st.file_uploader("อัปโหลดรูปภาพเพื่อค้นหา", type="jpg")
-st.write("รองรับมากกว่า 75 สายพันธุ์ โดยสามารถดูรายชื่อได้ [ที่นี่](https://github.com/0045w/BSIC/blob/main/class_dict.csv)")
+uploaded_file = st.file_uploader("Choose a image file", type="jpg")
+st.write("A list of 75 supported butterfly species can be accessed [here](https://github.com/0045w/BSIC/blob/main/class_dict.csv)")
 
 map_dict = {0: 'ADONIS', 
             1: 'AFRICAN GIANT SWALLOWTAIL', 
@@ -121,10 +124,10 @@ if uploaded_file is not None:
     resized = mobilenet_v2_preprocess_input(resized)
     img_reshape = resized[np.newaxis,...]
 
-    Genrate_pred = st.button("ค้นหาสายพันธุ์")    
+    Genrate_pred = st.button("Prediction species")    
     if Genrate_pred:
         prediction = model.predict(img_reshape).argmax()
-        st.subheader("ผีเสื้อตัวนี้สายพันธุ์ {}".format(map_dict [prediction]))
+        st.subheader("This butterfly is {}.".format(map_dict [prediction]))
 
 
 
